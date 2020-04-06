@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COVID 19 Emergency Food Relief</title>
+  <!-- bootstrap & fontawesome css -->
+  <link href="http://cdn.jsdelivr.net/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="http://cdn.jsdelivr.net/fontawesome/4.1.0/css/font-awesome.min.css" />
+
+  <!-- BootstrapValidator CSS -->
+  <link rel="stylesheet" href="http://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css"/>
+
+  <!-- jQuery and Bootstrap JS -->
+  <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+  <!-- BootstrapValidator JS -->
+  <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js"></script>
+  
+  <!-- Animated Loading Icon -->
+  <style type="text/css">
+  .glyphicon-refresh-animate {
+      -animation: spin .7s infinite linear;
+      -webkit-animation: spin2 .7s infinite linear;
+  }
+
+  @-webkit-keyframes spin2 {
+      from { -webkit-transform: rotate(0deg);}
+      to { -webkit-transform: rotate(360deg);}
+  }
+
+  @keyframes spin {
+      from { transform: scale(1) rotate(0deg);}
+      to { transform: scale(1) rotate(360deg);}
+  }
+  </style>
+</head>
+<body>
+</head>
+
+<body>
+  <div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h2>COVID 19 Emergency Relief Project</h2>
+      <p>
+		Hello, We are in this unique crisis together and we are here to help. Please fill out the form below once we receive it we will place it in our sheet. Delivery will go according to the order the request was received.  The volunteer is going to drop the food package in front of your door and will either ring your bell and leave or will call you after they leave to let you know that it has been dropped.
+	  <p>
+    </div>
+  </div>
+  <hr>
+  <form class="form-horizontal" role="form" id="test-form">
+    <div class="form-group">
+      <label class="col-lg-3 control-label">First Name</label>
+      <div class="col-lg-3 inputGroupContainer">
+        <div class="input-group">
+          <input type="text" class="form-control" name="First Name" placeholder="First Name"/>
+        </div>
+      </div>
+    </div>
+
+	<div class="form-group">
+      <label class="col-lg-3 control-label">Last Name</label>
+      <div class="col-lg-3 inputGroupContainer">
+        <div class="input-group">
+          <input type="text" class="form-control" name="Last Name" placeholder="Last Name"/>
+        </div>
+      </div>
+    </div>
+
+	<div class="form-group">
+		<label class="col-lg-3 control-label">What is the total amount of people living in your household?</label>
+		<div class="col-lg-3 inputGroupContainer">
+			<div class = "input-group">
+				<input type="text" class="form-control" name="household-size" onchange="addHouseMembers(this);"/>
+			</div>
+		</div>
+	</div>
+
+    <div class="form-group">
+      <label class="col-lg-3 control-label">Street Address</label>
+      <div class="col-lg-3 inputGroupContainer">
+        <div class="input-group">
+          <input type="text" class="form-control" name="Street Address" placeholder="1234 Main Street"/>
+        </div>
+      </div>
+    </div>
+	
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Apartment/lot number</label>
+		<div class="col-lg-3 inputGroupContainer">
+			<div class="input-group">
+				<input type="text" class="form-control" name="Apartment/lot number" placeholder=""/>
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-lg-3 control-label">City</label>
+		<div class="col-lg-3 inputGroupContainer">
+			<div class="input-group">
+				<select id="City" name="City">
+					<option value="Mount Pleasant">Mount Pleasant</option>
+					<option value="Charleston">Charleston</option>
+					<option value="North Charleston">North Charleston</option>
+					<option value="West Ashley">West Ashley</option>
+					<option value="Goose Creek">Goose Creek</option>
+					<option value="Moncks Corner">Moncks Corner</option>
+					<option value="Ravenel">Ravenel</option>
+					<option value="Ladson">Ladson</option>
+					<option value="Hollywood">Hollywood</option>
+					<option value="Awendaw">Awendaw</option>
+					<option value="Summerville">Summerville</option>
+					<option value="Hanahan">Hanahan</option>
+					<option value="My city is not listed (Please specify in comments)">My city is not listed (Please specify in comments)</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Zip code</label>
+		<div class="col-lg-3 inputGroupContainer">
+        <div class="input-group">
+          <input type="text" class="form-control" name="Zip code" placeholder=""/>
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Phone Number</label>
+		<div class="col-lg-3 inputGroupContainer">
+			<div class="input-group">
+				<input type="text" class="form-control" name="Phone Number" placeholder=""/>
+			</div>
+		</div>
+	</div>
+	
+    <div class="form-group">
+      <label class="col-lg-3 control-label">Email (optional)</label>
+      <div class="col-lg-3 inputGroupContainer">
+        <div class="input-group">
+          <input type="text" class="form-control" name="Email (optional)" placeholder="name@domain.com"/>
+        </div>
+      </div>
+    </div>
+	<!--Needs Validation-->
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Date of Birth</label>
+		<div class="col-lg-3 inputGroupContainer">
+			<div class = "input-group">
+				<input type="date" class="form-control" name="dob"/>
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Gender</label>
+		<div class="col-lg-3 inputGroupContainer">
+			<div class = "input-group">
+				<select id="gender" name="gender">
+					<option value="Male">Male</option>
+					<option value="Female">Female</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Nationality/Race</label>
+		<div class="col-lg-3 inputGroupContainer">
+			<div class = "input-group">
+				<select id="race" name="race">
+					<option value="black">Black (Not of Hispanic Origin)</option>
+					<option value="white">White (Not of Hispanic Origin)</option>
+					<option value="asian">Asian</option>
+					<option value="hispanic">Hispanic</option>
+					<option value="native-american">American Indian/Alaskan Native</option>
+					<option value="pacific-islander">Native Hawaiian/Pacific Islander</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-group", id="family-info">
+		<label class="col-lg-12">Information for other Family Members</label>
+		<div class="col-lg-3 inputGroupContainer">
+			<div class = "input-group", id = "family-input-container">
+				
+			</div>
+		</div>
+	</div>
+	
+	<!--End Need Validation-->
+    <div class="form-group">
+      <div class="col-lg-9 col-lg-offset-3">
+        <button type="submit" class="btn btn-default" id="postForm">Submit</button>
+      </div>
+    </div>
+
+  </form>
+
+  </div>
+</body>
+
+<footer>
+<script src="validation-functions.js"></script>
+</footer>
+
+</html>
