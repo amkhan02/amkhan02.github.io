@@ -71,9 +71,6 @@ $(document).ready(function() {
 			"Apartment/lot number": {
                 message: 'Address is not valid',
                 validators: {
-                    notEmpty: {
-                        message: 'Address is required and cannot be empty'
-                    },
 					regexp:{
 						regexp: /^[a-zA-Z\d ]*$/,
 						message: 'Apartment number can only accept alphanumeric input'
