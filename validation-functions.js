@@ -118,8 +118,16 @@ $(document).ready(function() {
                         message: 'The comments section can only accept alphanumeric input'
                     },
                 }
+            },
+			"Diapers": {
+             message: 'The input is invalid',
+                validators: {
+                    regexp: {
+                        regexp: /^[a-zA-Z\d ]*$/,
+                        message: 'This section can only accept alphanumeric input'
+                    },
+                }
             }
-
         }
     })
     .on('success.form.bv', function(e) {
