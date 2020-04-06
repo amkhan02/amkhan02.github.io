@@ -110,7 +110,15 @@ $(document).ready(function() {
                     }
                 }
             },
-             
+             "Comments": {
+             message: 'The comments are not valid',
+                validators: {
+                    regexp: {
+                        regexp: /^[a-zA-Z\d ]*$/,
+                        message: 'The comments section can only accept alphanumeric input'
+                    },
+                }
+            }
 
         }
     })
