@@ -1,187 +1,187 @@
-$(document).ready(function() {
-    $('#test-form').bootstrapValidator({
-        //submitButtons: '#postForm',
-        // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
-        feedbackIcons: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },        
-        fields: {
-            "First Name": {
-             message: 'The first name is not valid',
-                validators: {
-                    notEmpty: {
-                        message: 'The first name is required and cannot be empty'
-                    },
-                    stringLength: {
-                        min: 1,
-                        max: 30,
-                        message: 'The first name must be more than 1 and less than 30 characters long'
-                    },
-                    regexp: {
-                        regexp: /^[a-zA-Z ]*$/,
-                        message: 'The first name can only accept alphabetical input'
-                    },
-                }
-            },
-			"Last Name": {
-             message: 'The last name is not valid',
-                validators: {
-                    notEmpty: {
-                        message: 'The last name is required and cannot be empty'
-                    },
-                    stringLength: {
-                        min: 1,
-                        max: 30,
-                        message: 'The last name must be more than 1 and less than 30 characters long'
-                    },
-					regexp: {
-                        regexp: /^[a-zA-Z ]*$/,
-                        message: 'The last name can only accept alphabetical input'
-                    },
-                }
-            },
-			"household-size": {
-             message: 'The household size is not valid',
-                validators: {
-                    notEmpty: {
-                        message: 'The household size is required and cannot be empty'
-                    },
-                    between: {
-						inclusive: true,
-						min: 1,
-						max: 20,
-						message: 'Household size must be a number between 1 and 20'
-					}
-                }
-            },
-            "Street Address": {
-                message: 'Address is not valid',
-                validators: {
-                    notEmpty: {
-                        message: 'Address is required and cannot be empty'
-                    },
-					regexp:{
-						regexp: /^[a-zA-Z\d ]*$/,
-						message: 'Street address can only accept alphanumeric input'
-					}
-                }
-            },
-			"Apartment/lot number": {
-                message: 'Address is not valid',
-                validators: {
-					regexp:{
-						regexp: /^[a-zA-Z\d ]*$/,
-						message: 'Apartment number can only accept alphanumeric input'
-					}
-                }
-            },
-			"Zip code": {
-                message: 'Zip code is not valid',
-                validators: {
-                    notEmpty: {
-                        message: 'Zip code is required and cannot be empty'
-                    },
-					between: {
-						inclusive: true,
-						min: 29400,
-						max: 29500,
-						message: 'Please enter a Charleston area Zip Code'
-					}
-                }
-            },
-			"Phone Number": {
-                message: 'Phone number is not valid',
-                validators: {
-                    notEmpty: {
-                        message: 'Phone number is required and cannot be empty'
-                    },
-					regexp: {
-                        regexp: /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/,
-                        message: 'Please enter a valid phone number'
-                    }
-                }
-            },
-            "Email (optional)": {
-                validators: {
-                    emailAddress: {
-                        message: 'The email address is not valid'
-                    }
-                }
-            },
-             "Comments": {
-             message: 'The comments are not valid',
-                validators: {
-                    regexp: {
-                        regexp: /^[a-zA-Z\d ]*$/,
-                        message: 'The comments section can only accept alphanumeric input'
-                    },
-                }
-            },
-			"Diapers": {
-             message: 'The input is invalid',
-                validators: {
-                    regexp: {
-                        regexp: /^[a-zA-Z\d ]*$/,
-                        message: 'This section can only accept alphanumeric input'
-                    },
-                }
-            }
-        }
-    })
-    .on('success.form.bv', function(e) {
-		var deploy = true;
+// $(document).ready(function() {
+    // $('#test-form').bootstrapValidator({
+        // //submitButtons: '#postForm',
+        // // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+        // feedbackIcons: {
+            // valid: 'glyphicon glyphicon-ok',
+            // invalid: 'glyphicon glyphicon-remove',
+            // validating: 'glyphicon glyphicon-refresh'
+        // },        
+        // fields: {
+            // "First Name": {
+             // message: 'The first name is not valid',
+                // validators: {
+                    // notEmpty: {
+                        // message: 'The first name is required and cannot be empty'
+                    // },
+                    // stringLength: {
+                        // min: 1,
+                        // max: 30,
+                        // message: 'The first name must be more than 1 and less than 30 characters long'
+                    // },
+                    // regexp: {
+                        // regexp: /^[a-zA-Z ]*$/,
+                        // message: 'The first name can only accept alphabetical input'
+                    // },
+                // }
+            // },
+			// "Last Name": {
+             // message: 'The last name is not valid',
+                // validators: {
+                    // notEmpty: {
+                        // message: 'The last name is required and cannot be empty'
+                    // },
+                    // stringLength: {
+                        // min: 1,
+                        // max: 30,
+                        // message: 'The last name must be more than 1 and less than 30 characters long'
+                    // },
+					// regexp: {
+                        // regexp: /^[a-zA-Z ]*$/,
+                        // message: 'The last name can only accept alphabetical input'
+                    // },
+                // }
+            // },
+			// "household-size": {
+             // message: 'The household size is not valid',
+                // validators: {
+                    // notEmpty: {
+                        // message: 'The household size is required and cannot be empty'
+                    // },
+                    // between: {
+						// inclusive: true,
+						// min: 1,
+						// max: 20,
+						// message: 'Household size must be a number between 1 and 20'
+					// }
+                // }
+            // },
+            // "Street Address": {
+                // message: 'Address is not valid',
+                // validators: {
+                    // notEmpty: {
+                        // message: 'Address is required and cannot be empty'
+                    // },
+					// regexp:{
+						// regexp: /^[a-zA-Z\d ]*$/,
+						// message: 'Street address can only accept alphanumeric input'
+					// }
+                // }
+            // },
+			// "Apartment/lot number": {
+                // message: 'Address is not valid',
+                // validators: {
+					// regexp:{
+						// regexp: /^[a-zA-Z\d ]*$/,
+						// message: 'Apartment number can only accept alphanumeric input'
+					// }
+                // }
+            // },
+			// "Zip code": {
+                // message: 'Zip code is not valid',
+                // validators: {
+                    // notEmpty: {
+                        // message: 'Zip code is required and cannot be empty'
+                    // },
+					// between: {
+						// inclusive: true,
+						// min: 29400,
+						// max: 29500,
+						// message: 'Please enter a Charleston area Zip Code'
+					// }
+                // }
+            // },
+			// "Phone Number": {
+                // message: 'Phone number is not valid',
+                // validators: {
+                    // notEmpty: {
+                        // message: 'Phone number is required and cannot be empty'
+                    // },
+					// regexp: {
+                        // regexp: /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/,
+                        // message: 'Please enter a valid phone number'
+                    // }
+                // }
+            // },
+            // "Email (optional)": {
+                // validators: {
+                    // emailAddress: {
+                        // message: 'The email address is not valid'
+                    // }
+                // }
+            // },
+             // "Comments": {
+             // message: 'The comments are not valid',
+                // validators: {
+                    // regexp: {
+                        // regexp: /^[a-zA-Z\d ]*$/,
+                        // message: 'The comments section can only accept alphanumeric input'
+                    // },
+                // }
+            // },
+			// "Diapers": {
+             // message: 'The input is invalid',
+                // validators: {
+                    // regexp: {
+                        // regexp: /^[a-zA-Z\d ]*$/,
+                        // message: 'This section can only accept alphanumeric input'
+                    // },
+                // }
+            // }
+        // }
+    // })
+    // .on('success.form.bv', function(e) {
+		// var deploy = true;
 		
-        // Prevent form submission
-        e.preventDefault();
+        // // Prevent form submission
+        // e.preventDefault();
 
-        // Get the form instance
-        var $form = $(e.target);
+        // // Get the form instance
+        // var $form = $(e.target);
 
-        // Get the BootstrapValidator instance
-        var bv = $form.data('bootstrapValidator');
+        // // Get the BootstrapValidator instance
+        // var bv = $form.data('bootstrapValidator');
 
-        // Use Ajax to submit form data
-        var url = 'https://script.google.com/macros/s/AKfycbwR2oJeXmuD4hI4QUKr8QE-dZIInYmzsXRJH422DhJBJFlWEgY/exec';
+        // // Use Ajax to submit form data
+        // var url = 'https://script.google.com/macros/s/AKfycbwR2oJeXmuD4hI4QUKr8QE-dZIInYmzsXRJH422DhJBJFlWEgY/exec';
 		
-		if(deploy){
-			url = 'https://script.google.com/macros/s/AKfycbyxMNusJI0snt3lSaQPWIMDKMH2DrMjQJXWBQYCb5dSlcikvCY/exec';
-		}
-        var redirectUrl = 'https://shifaclinics.com/thank-you';
-        // show the loading 
-        $('#postForm').prepend($('<span></span>').addClass('glyphicon glyphicon-refresh glyphicon-refresh-animate'));
-        var jqxhr = $.get(url, $form.serialize(), function(data) {
-            console.log("Success! Data: " + data.statusText);
-            $(location).attr('href',redirectUrl);
-        })
-            .fail(function(data) {
-                console.warn("Error! Data: " + data.statusText);
-                if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
-                    //alert("Browser is Safari -- we get an error, but the form still submits -- continue.");
-                    $(location).attr('href',redirectUrl);                
-                }
-            });
+		// if(deploy){
+			// url = 'https://script.google.com/macros/s/AKfycbyxMNusJI0snt3lSaQPWIMDKMH2DrMjQJXWBQYCb5dSlcikvCY/exec';
+		// }
+        // var redirectUrl = 'https://shifaclinics.com/thank-you';
+        // // show the loading 
+        // $('#postForm').prepend($('<span></span>').addClass('glyphicon glyphicon-refresh glyphicon-refresh-animate'));
+        // var jqxhr = $.get(url, $form.serialize(), function(data) {
+            // console.log("Success! Data: " + data.statusText);
+            // $(location).attr('href',redirectUrl);
+        // })
+            // .fail(function(data) {
+                // console.warn("Error! Data: " + data.statusText);
+                // if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
+                    // //alert("Browser is Safari -- we get an error, but the form still submits -- continue.");
+                    // $(location).attr('href',redirectUrl);                
+                // }
+            // });
 		
-		url = 'http://127.0.0.1:5000/';
+		// url = 'http://127.0.0.1:5000/';
 		
-		if(deploy){
-			url = 'https://shifa-server.xyz';
-		}
+		// if(deploy){
+			// url = 'https://shifa-server.xyz';
+		// }
 		
-		var jqxhr2 = $.post(url, $form.serialize(), function(data) {
-            console.log("Success! Data: " + data.statusText);
-            $(location).attr('href',redirectUrl);
-        })
-            .fail(function(data) {
-                console.warn("Error! Data: " + data.statusText);
-                if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
-                    //alert("Browser is Safari -- we get an error, but the form still submits -- continue.");
-                    $(location).attr('href',redirectUrl);                
-                }
-            });
-    });
-});
+		// var jqxhr2 = $.post(url, $form.serialize(), function(data) {
+            // console.log("Success! Data: " + data.statusText);
+            // $(location).attr('href',redirectUrl);
+        // })
+            // .fail(function(data) {
+                // console.warn("Error! Data: " + data.statusText);
+                // if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
+                    // //alert("Browser is Safari -- we get an error, but the form still submits -- continue.");
+                    // $(location).attr('href',redirectUrl);                
+                // }
+            // });
+    // });
+// });
 
 function addHouseMembers(that){
 	var large = document.getElementById("family-info");
@@ -198,7 +198,8 @@ function addHouseMembers(that){
 		var input = document.createElement("input");
 		input.type = "text";
 		input.name = "member" + i + "_name";
-		input.pattern = "/^[a-zA-Z ]*$/";
+		input.pattern = "^[a-zA-Z ]*$";
+		input.required = true;
 		family.appendChild(input);
 		family.appendChild(document.createElement("br"));
 		
@@ -207,6 +208,7 @@ function addHouseMembers(that){
 		input = document.createElement("input");
 		input.type = "date";
 		input.name = "member" + i + "_dob";
+		input.required = true;
 		family.appendChild(input);
 		family.appendChild(document.createElement("br"));
 		
@@ -215,7 +217,9 @@ function addHouseMembers(that){
 		input = document.createElement("input");
 		input.type = "text";
 		input.name = "member" + i + "_relationship";
-		input.pattern = "/^[a-zA-Z ]*$/";
+		input.name = "member" + i + "_name";
+		input.pattern = "^[a-zA-Z ]*$";
+		input.required = true;
 		family.appendChild(input);
 		family.appendChild(document.createElement("br"));
 		
@@ -277,3 +281,51 @@ function addHouseMembers(that){
 		family.appendChild(document.createElement("br"));
 	}
 }
+
+function sendData(){
+	
+}
+
+$( "form" ).on( "submit", function( event ) {
+	event.preventDefault();
+	
+	var deploy = true;
+	var sheetUrl = 'https://script.google.com/macros/s/AKfycbwR2oJeXmuD4hI4QUKr8QE-dZIInYmzsXRJH422DhJBJFlWEgY/exec';
+	var serverUrl = 'https://127.0.0.1:5000';
+	var redirectUrl = '#';
+	var uploadData = $(this).serialize();
+	
+	if(deploy){
+		sheetUrl = 'https://script.google.com/macros/s/AKfycbyxMNusJI0snt3lSaQPWIMDKMH2DrMjQJXWBQYCb5dSlcikvCY/exec';
+		serverUrl = 'https://shifa-server.xyz';
+		redirectUrl = 'https://shifaclinics.com/thank-you';
+	}
+	
+	//Send data to Food Bank Updater
+	var jqxhr = $.post(serverUrl, uploadData, function(data){
+		console.log("success, data: " + data.statusText);
+		$(location).attr('href', redirectUrl);
+	})
+	.fail(function(data){
+		console.warn("error, data: " + data.statusText);
+		console.log(serverUrl);
+		if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
+            alert("Browser is Safari -- we get an error, but the form still submits -- continue.");
+            $(location).attr('href',redirectUrl);                
+        }
+	});
+	
+	//Send data to google sheet
+	var jqxhr = $.get(sheetUrl, uploadData, function(data){
+		console.log("success, data: " + data.statusText);
+		$(location).attr('href', redirectUrl);
+	})
+	.fail(function(data){
+		console.warn("error, data: " + data.statusText);
+		if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
+            alert("Browser is Safari -- we get an error, but the form still submits -- continue.");
+            $(location).attr('href',redirectUrl);                
+        }
+	});
+	
+});

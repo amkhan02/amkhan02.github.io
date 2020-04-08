@@ -54,7 +54,7 @@
       <label class="col-lg-3 control-label">First Name</label>
       <div class="col-lg-3 inputGroupContainer">
         <div class="input-group">
-          <input type="text" class="form-control" name="First Name" placeholder="First Name"/>
+          <input type="text" class="form-control" name="First Name" required pattern="^[a-zA-Z ]*$"/>
         </div>
       </div>
     </div>
@@ -63,7 +63,7 @@
       <label class="col-lg-3 control-label">Last Name</label>
       <div class="col-lg-3 inputGroupContainer">
         <div class="input-group">
-          <input type="text" class="form-control" name="Last Name" placeholder="Last Name"/>
+          <input type="text" class="form-control" name="Last Name" required pattern="^[a-zA-Z ]*$"/>
         </div>
       </div>
     </div>
@@ -72,7 +72,7 @@
 		<label class="col-lg-3 control-label">What is the total amount of people living in your household?</label>
 		<div class="col-lg-3 inputGroupContainer">
 			<div class = "input-group">
-				<input type="text" class="form-control" name="household-size" onchange="addHouseMembers(this);"/>
+				<input type="number" class="form-control" name="household-size" onchange="addHouseMembers(this);" required min="1" max="20"/>
 			</div>
 		</div>
 	</div>
@@ -81,7 +81,7 @@
       <label class="col-lg-3 control-label">Street Address</label>
       <div class="col-lg-3 inputGroupContainer">
         <div class="input-group">
-          <input type="text" class="form-control" name="Street Address" placeholder="1234 Main Street"/>
+          <input type="text" class="form-control" name="Street Address" placeholder="1234 Main Street" required pattern="^[a-zA-Z\d ]*$"/>
         </div>
       </div>
     </div>
@@ -90,7 +90,7 @@
 		<label class="col-lg-3 control-label">Apartment/lot number</label>
 		<div class="col-lg-3 inputGroupContainer">
 			<div class="input-group">
-				<input type="text" class="form-control" name="Apartment/lot number" placeholder=""/>
+				<input type="text" class="form-control" name="Apartment/lot number" pattern="^[a-zA-Z\d ]*$"/>
 			</div>
 		</div>
 	</div>
@@ -122,7 +122,7 @@
 		<label class="col-lg-3 control-label">Zip code</label>
 		<div class="col-lg-3 inputGroupContainer">
         <div class="input-group">
-          <input type="text" class="form-control" name="Zip code" placeholder=""/>
+          <input type="number" class="form-control" name="Zip code" placeholder="" required min="29400" max="29500"/>
 			</div>
 		</div>
 	</div>
@@ -131,7 +131,7 @@
 		<label class="col-lg-3 control-label">Phone Number</label>
 		<div class="col-lg-3 inputGroupContainer">
 			<div class="input-group">
-				<input type="text" class="form-control" name="Phone Number" placeholder=""/>
+				<input type="text" class="form-control" name="Phone Number" placeholder="" required pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$"/>
 			</div>
 		</div>
 	</div>
@@ -140,7 +140,7 @@
       <label class="col-lg-3 control-label">Email (optional)</label>
       <div class="col-lg-3 inputGroupContainer">
         <div class="input-group">
-          <input type="text" class="form-control" name="Email (optional)" placeholder="name@domain.com"/>
+          <input type="email" class="form-control" name="Email (optional)" placeholder="name@domain.com"/>
         </div>
       </div>
     </div>
@@ -149,7 +149,7 @@
 		<label class="col-lg-3 control-label">Date of Birth</label>
 		<div class="col-lg-3 inputGroupContainer">
 			<div class = "input-group">
-				<input type="date" class="form-control" name="dob"/>
+				<input type="date" class="form-control" name="dob" required />
 			</div>
 		</div>
 	</div>
@@ -195,7 +195,7 @@
       <label class="col-lg-3 control-label">Do you need diapers? If so, what size?</label>
       <div class="col-lg-3 inputGroupContainer">
         <div class="input-group">
-          <input type="text" class="form-control" name="Diapers"/>
+          <input type="text" class="form-control" name="Diapers" pattern="^[a-zA-Z\d ]*$"/>
         </div>
       </div>
     </div>
@@ -204,7 +204,7 @@
       <label class="col-lg-3 control-label">Comments</label>
       <div class="col-lg-3 inputGroupContainer">
         <div class="input-group">
-          <input type="text" class="form-control" name="Comments"/>
+          <input type="text" class="form-control" name="Comments" pattern="^[a-zA-Z\d ]*$"/>
         </div>
       </div>
     </div>
