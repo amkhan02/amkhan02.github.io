@@ -289,10 +289,10 @@ function sendData(){
 $( "form" ).on( "submit", function( event ) {
 	event.preventDefault();
 	
-	var deploy = false;
+	var deploy = true;
 	var sheetUrl = 'https://script.google.com/macros/s/AKfycbwR2oJeXmuD4hI4QUKr8QE-dZIInYmzsXRJH422DhJBJFlWEgY/exec';
 	var serverUrl = 'https://127.0.0.1:5000';
-	var redirectUrl = 'success-page.html';
+	var redirectUrl = '#';
 	var uploadData = $(this).serialize();
 	
 	if(deploy){
