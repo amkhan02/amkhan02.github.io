@@ -289,17 +289,20 @@ function sendData(){
 $( "form" ).on( "submit", function( event ) {
 	event.preventDefault();
 	
-	var deploy = true;
+	var deploy = false;
 	var sheetUrl = 'https://script.google.com/macros/s/AKfycbwR2oJeXmuD4hI4QUKr8QE-dZIInYmzsXRJH422DhJBJFlWEgY/exec';
 	var serverUrl = 'https://127.0.0.1:5000';
-	var redirectUrl = '#';
+	var redirectUrl = 'success-page.html';
 	var uploadData = $(this).serialize();
 	
 	if(deploy){
 		sheetUrl = 'https://script.google.com/macros/s/AKfycbyxMNusJI0snt3lSaQPWIMDKMH2DrMjQJXWBQYCb5dSlcikvCY/exec';
 		serverUrl = 'https://shifa-server.xyz';
-		redirectUrl = 'https://shifaclinics.com/thank-you';
+		redirectUrl = 'success-page.html';
 	}
+	
+	//add loading icon
+	$('#postForm').prepend($('<span></span>').addClass('glyphicon glyphicon-refresh glyphicon-refresh-animate'));
 	
 	//Send data to Food Bank Updater
 	var jqxhr = $.post(serverUrl, uploadData, function(data){
