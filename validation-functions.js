@@ -116,7 +116,6 @@ $( "form" ).on( "submit", function( event ) {
 		redirectUrl = 'success-page.html';
 	}
 	
-	serverUrl = '142.93.5.192';
 	
 	//add loading icon
 	$('#postForm').prepend($('<span></span>').addClass('glyphicon glyphicon-refresh glyphicon-refresh-animate'));
