@@ -105,7 +105,7 @@ $( "form" ).on( "submit", function( event ) {
 	event.preventDefault();
 	
 	var deploy = true;
-	var sheetUrl = 'https://script.google.com/macros/s/AKfycbwR2oJeXmuD4hI4QUKr8QE-dZIInYmzsXRJH422DhJBJFlWEgY/exec';
+	var sheetUrl = 'https://script.google.com/macros/s/AKfycbyeK6QhUWlazdKJLH_VDxNxzBgFvhQiAplhs7nKubL__Ac7PDc/exec';
 	var serverUrl = 'https://127.0.0.1:5000';
 	var redirectUrl = '#';
 	var uploadData = $(this).serialize();
@@ -116,6 +116,10 @@ $( "form" ).on( "submit", function( event ) {
 		redirectUrl = 'success-page.html';
 	}
 	
+	if(document.querySelector('input[name="receive-method"]:checked').value === 'pickup'){
+		uploadData += '&Group=50';
+		redirectUrl = 'https://shifafreeclinic.makeplans.net/services/14509/slots  ';
+	}
 	
 	//add loading icon
 	$('#postForm').prepend($('<span></span>').addClass('glyphicon glyphicon-refresh glyphicon-refresh-animate'));
