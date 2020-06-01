@@ -1,8 +1,12 @@
 An HTML Form for people to sign up for Covid 19 Food delivery
 
 Changelog:
+
+06/01/2020:
+Made delivery option hidden
+
 05/30/2020:
-Added button to choose pickup or delivery
+Added buttons to choose pickup or delivery
 Pickup requires client to sign up for a time at shifafreeclinic.makeplans.net
 
 04/08/2020:

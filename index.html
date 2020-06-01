@@ -46,8 +46,10 @@
       <p>
 		Hello, We are in this unique crisis together and we are here to help. Please fill out the form below once we receive it we will  put in our data base for the program. Delivery will go according to the order the request was received.
 	  </p>
-	  <p>
-		Due to restrictions being lifted and travel allowed we encourage you to choose the “Pick up” option as we are limited on volunteers on home delivery and processing your request can be upto 2-3 weeks depending on your zip code.
+	  <p><b>Note: At this point in time we are only offering the pickup option because of a shortage of volunteers
+				willing to conduct deliveries.</b></p>
+	  <p hidden="true">
+		<b>Due to restrictions being lifted and travel allowed we encourage you to choose the “Pick up” option</b> as we are limited on volunteers on home delivery and processing your request can be up to 2-3 weeks depending on your zip code.
 	  </p>
     </div>
   </div>
@@ -221,12 +223,15 @@
 			<p>Choose "Pickup" if you live more than 20 miles away or you would like to be able to get food earlier. </p>
 			<p>If you choose "Pickup", please be sure to sign up for a time on the next page, or you may be 
 				unable to pick up until a much later date.</p>
-			<p>If you choose "Delivery", please be aware that deliveries are fulfilled in the order they are requested, 
+				
+			<p hidden="true">If you choose "Delivery", please be aware that deliveries are fulfilled in the order they are requested, 
 				so it may take 2 weeks or longer for you to receive the food.</p>
+				
 			<input type="radio" id="pickup" name="receive-method" value="pickup" checked="checked"/>
 			<label for="pickup">Pickup</label><br>
-			<input type="radio" id="delivery" name="receive-method" value="delivery"/>
-			<label for="no">Delivery</label><br>
+			
+			<input type="radio" id="delivery" name="receive-method" value="delivery" hidden="true"/>
+			<label for="delivery" hidden="true">Delivery</label><br>
         </div>
       </div>
     </div>
