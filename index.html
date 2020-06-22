@@ -46,8 +46,7 @@
       <p>
 		Hello, We are in this unique crisis together and we are here to help. Please fill out the form below once we receive it we will  put in our data base for the program. Delivery will go according to the order the request was received.
 	  </p>
-	  <p><b>Note: At this point in time we are only offering the pickup option because of a shortage of volunteers
-				willing to conduct deliveries.</b></p>
+	  <p><b> Note: At this point, we have limited home delivery destinations because of a shortage of volunteers.</b> We would encourage you to choose the <b>“Pick up”</b> option as processing a delivery could take up to 1-3 weeks based off zip code. </p>
 	  <p hidden="true">
 		<b>Due to restrictions being lifted and travel allowed we encourage you to choose the “Pick up” option</b> as we are limited on volunteers on home delivery and processing your request can be up to 2-3 weeks depending on your zip code.
 	  </p>
@@ -72,6 +71,7 @@
         </div>
       </div>
     </div>
+
 
 	<div class="form-group">
 		<label class="col-lg-3 control-label">What is the total amount of people living in your household?</label>
@@ -100,12 +100,12 @@
 		</div>
 	</div>
 	
-	<!-- Old dropdown for city selection
 	<div class="form-group">
 		<label class="col-lg-3 control-label">City</label>
 		<div class="col-lg-3 inputGroupContainer">
 			<div class="input-group">
-				<select id="City" name="City">
+				<select id="City" name="City" required onchange="validateDelivery(this)">
+					<option value="" selected disabled hidden>Please select your city</option>
 					<option value="Mount Pleasant">Mount Pleasant</option>
 					<option value="Charleston">Charleston</option>
 					<option value="North Charleston">North Charleston</option>
@@ -123,8 +123,9 @@
 			</div>
 		</div>
 	</div>
-	-->
 	
+
+	<!-- Text Based City Selection
 	<div class="form-group">
       <label class="col-lg-3 control-label">City</label>
       <div class="col-lg-3 inputGroupContainer">
@@ -133,6 +134,7 @@
         </div>
       </div>
     </div>
+	-->
 	
 	<div class="form-group">
 		<label class="col-lg-3 control-label">Zip code</label>
@@ -217,21 +219,37 @@
     </div>
 	
 	<div class="form-group">
-      <label class="col-lg-3 control-label">Choose the method of receiving the food.</label>
-      <div class="col-lg-3 inputGroupContainer">
+      <label class="col-lg-3 control-label">Choose the method of receiving the food and read the following instructions.</label>
+      <div class="col-lg-4 inputGroupContainer">
         <div class="input-group">
-			<p>Choose "Pickup" if you live more than 20 miles away or you would like to be able to get food earlier. </p>
-			<p>If you choose "Pickup", please be sure to sign up for a time on the next page, or you may be 
-				unable to pick up until a much later date.</p>
+			<LI>Please only choose <b>"Delivery"</b> if you are <b>elderly, disabled, or have no transportation</b> and live in the right area. </LI>
+			<LI>If you choose "Pickup", please be sure to <b>sign up for a time on the next page</b>, or you may be 
+				unable to pick up until a much later date.</LI>
+			<LI>You can <b>pick-up for other families</b> as long as they also have an application. Please write down who you are picking up for in the comment section.</LI>
 				
+			<br>
 			<p hidden="true">If you choose "Delivery", please be aware that deliveries are fulfilled in the order they are requested, 
 				so it may take 2 weeks or longer for you to receive the food.</p>
 				
-			<input type="radio" id="pickup" name="receive-method" value="pickup" checked="checked"/>
-			<label for="pickup">Pickup</label><br>
+			<input type="radio" id="pickup" name="receive-method" value="pickup"  style = "margin-left: 5px" checked onchange="addDeliveryForm(this);"/>
+			<label for="pickup" style = "margin-left: 5px"> Pickup</label><br>
 			
-			<input type="radio" id="delivery" name="receive-method" value="delivery" hidden="true"/>
-			<label for="delivery" hidden="true">Delivery</label><br>
+			<input type="radio" id="delivery" name="receive-method" value="delivery" onchange="addDeliveryForm(this);" disabled style = "margin-left: 5px"/>
+
+			<label for="delivery" style = "margin-left: 5px" >Delivery</label><br>
+
+			<small class="text-danger" id="delivery-error" style = "margin-left: 5px">Please select a city to check eligibility for delivery </small><br>
+
+
+
+			<div class="form-group", id="family-info">
+				<label class="col-lg-12">Delivery Requirements</label>
+				<div class="col-lg-3 inputGroupContainer">
+					<div class = "input-group", id = "delivery-form">
+					</div>
+				</div>
+			</div>
+
         </div>
       </div>
     </div>
