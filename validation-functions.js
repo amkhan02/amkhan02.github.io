@@ -1,7 +1,7 @@
 //Sends a request to the google sheet api and validates if there is availability for delivery
 var slotsReserved = true;
 checkDeliverySlots(this);
-const validCities = ["Mount Pleasant","North Charleston","Charleston","Summerville","West Ashley"]
+const validCities = ["Mount Pleasant","North Charleston","Charleston","Summerville","West Ashley","Hanahan","Johns Island"]
 
 
 
