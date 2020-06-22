@@ -1,6 +1,8 @@
 An HTML Form for people to sign up for Covid 19 Food delivery
 
 Changelog:
+06/22/2020:
+(NukeWolf) Renabled Delivery Option, verifies eligbility for delivery based on available slots and city
 
 06/01/2020:
 Made delivery option hidden
