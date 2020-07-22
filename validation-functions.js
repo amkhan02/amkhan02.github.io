@@ -215,7 +215,7 @@ $( "form" ).on( "submit", function( event ) {
 	//Note that we have different test sheets
 	var sheetUrl = 'https://script.google.com/macros/s/AKfycbxlMNY40_TLjzhGDWErf1bCDRyzcahXFUnwKjO9DG5e4EDgCS0/exec';
 	var serverUrl = 'https://127.0.0.1:5000';
-	var redirectUrl = 'success-page.html';
+	var redirectUrl = '#';
 	var uploadData = $(this).serialize();
 	
 	if(deploy){
@@ -226,7 +226,7 @@ $( "form" ).on( "submit", function( event ) {
 	
 	if(document.querySelector('input[name="receive-method"]:checked').value === 'pickup'){
 		uploadData += '&Group=50&request=pickup';
-		redirectUrl = 'https://shifafreeclinic.makeplans.net/services/14509/slots  ';
+		redirectUrl = 'https://shifacovid19.as.me/?calendarID=4232173';
 	}
 
 	if(document.querySelector('input[name="receive-method"]:checked').value === 'delivery'){
