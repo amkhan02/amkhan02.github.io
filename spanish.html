@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Ayuda Alimentaria De Emergencia - COVID 19</title>
+  <!-- bootstrap & fontawesome css -->
+  <link href="https://cdn.jsdelivr.net/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontawesome/4.1.0/css/font-awesome.min.css" />
+
+  <!-- BootstrapValidator CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css"/>
+
+  <!-- jQuery and Bootstrap JS -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+  <!-- BootstrapValidator JS -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js"></script>
+  
+  <!-- Animated Loading Icon -->
+  <style type="text/css">
+  .glyphicon-refresh-animate {
+      -animation: spin .7s infinite linear;
+      -webkit-animation: spin2 .7s infinite linear;
+  }
+
+  @-webkit-keyframes spin2 {
+      from { -webkit-transform: rotate(0deg);}
+      to { -webkit-transform: rotate(360deg);}
+  }
+
+  @keyframes spin {
+      from { transform: scale(1) rotate(0deg);}
+      to { transform: scale(1) rotate(360deg);}
+  }
+  </style>
+</head>
+<body>
+</head>
+
+<body>
+  <div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h2>COVID 19- Proyecto de Socorro de Emergencia</h2>
+      <p>
+		Hola, Estamos juntos en esta crisis única y estamos aqui para ayudar. Por favor complete el siguiente formulario y se pondrá en nuestra base de datos. La entrega se programará de acuerdo con el pedido que recibimos las solicitudes.
+	  </p>
+	  <p><b> Aviso: En este punto, tenemos destinos limitados de entrega debido a la escasez de voluntarios.</b> Le aconsejamos que elija la opción de <b>“Recogida”</b> as processing a delivery could take up to 1-3 weeks based off zip code. </p>
+	  <p hidden="true">
+		<b>Due to restrictions being lifted and travel allowed we encourage you to choose the “Pick up” option</b> as we are limited on volunteers on home delivery and processing your request can be up to 2-3 weeks depending on your zip code.
+	  </p>
+    </div>
+  </div>
+  <hr>
+  <form class="form-horizontal" role="form" id="test-form">
+    
+
+	<div class="form-group">
+      <label class="col-lg-3 control-label">Apellido</label>
+      <div class="col-lg-3 inputGroupContainer">
+        <div class="input-group">
+          <input type="text" class="form-control" name="Last Name" required pattern="^[a-zA-Z ]*$"/>
+        </div>
+      </div>
+    </div>
+	<div class="form-group">
+      <label class="col-lg-3 control-label">Nombre</label>
+      <div class="col-lg-3 inputGroupContainer">
+        <div class="input-group">
+          <input type="text" class="form-control" name="First Name" required pattern="^[a-zA-Z ]*$"/>
+        </div>
+      </div>
+    </div>
+
+	<div class="form-group">
+		<label class="col-lg-3 control-label">¿Cuántas personas viven en su hogar?</label>
+		<div class="col-lg-3 inputGroupContainer">
+			<div class = "input-group">
+				<input type="number" class="form-control" name="household-size" onchange="addHouseMembers(this);" required min="1" max="20"/>
+			</div>
+		</div>
+	</div>
+
+    <div class="form-group">
+      <label class="col-lg-3 control-label">Dirección</label>
+      <div class="col-lg-3 inputGroupContainer">
+        <div class="input-group">
+          <input type="text" class="form-control" name="Street Address" placeholder="1234 Main Street" required pattern="^[a-zA-Z\d ]*$"/>
+        </div>
+      </div>
+    </div>
+	
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Número del aprtamento/(terreno) (not sure translation for lot) </label>
+		<div class="col-lg-3 inputGroupContainer">
+			<div class="input-group">
+				<input type="text" class="form-control" name="Apartment/lot number" pattern="^[a-zA-Z\d ]*$"/>
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Ciudad</label>
+		<div class="col-lg-3 inputGroupContainer">
+			<div class="input-group">
+				<select id="City" name="City" required onchange="validateDelivery(this)">
+					<option value="" selected disabled hidden>Por favor seleccione su ciudad</option>
+					<option value="Mount Pleasant">Mount Pleasant</option>
+					<option value="Charleston">Charleston</option>
+					<option value="North Charleston">North Charleston</option>
+					<option value="West Ashley">West Ashley</option>
+					<option value="Summerville">Summerville</option>
+					<option value="Goose Creek">Goose Creek</option>
+					<option value="Johns Island">Johns Island</option>
+					<option value="James Island">James Island</option>
+					<option value="Moncks Corner">Moncks Corner</option>
+					<option value="Ravenel">Ravenel</option>
+					<option value="Ladson">Ladson</option>
+					<option value="Hollywood">Hollywood</option>
+					<option value="Awendaw">Awendaw</option>
+					<option value="Hanahan">Hanahan</option>
+					<option value="My city is not listed">Mi ciudad no está en la lista (En commentarios)</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	
+
+	<!-- Text Based City Selection
+	<div class="form-group">
+      <label class="col-lg-3 control-label">City</label>
+      <div class="col-lg-3 inputGroupContainer">
+        <div class="input-group">
+          <input type="text" class="form-control" name="City" required pattern="[a-zA-Z\d .!?]*$"/>
+        </div>
+      </div>
+    </div>
+	-->
+	
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Código Postal</label>
+		<div class="col-lg-3 inputGroupContainer">
+        <div class="input-group">
+          <input type="number" class="form-control" name="Zip code" placeholder="" required min="29400" max="29500"/>
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Número de Teléfono</label>
+		<div class="col-lg-3 inputGroupContainer">
+			<div class="input-group">
+				<input type="text" class="form-control" name="Phone Number" placeholder="" required pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$"/>
+			</div>
+		</div>
+	</div>
+	
+    <div class="form-group">
+      <label class="col-lg-3 control-label">Email (opcional)</label>
+      <div class="col-lg-3 inputGroupContainer">
+        <div class="input-group">
+          <input type="email" class="form-control" name="Email (optional)" placeholder="name@domain.com"/>
+        </div>
+      </div>
+    </div>
+	
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Fecha de Nacimiento</label>
+		<div class="col-lg-3 inputGroupContainer">
+			<div class = "input-group">
+				<input type="date" class="form-control" name="dob" required />
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Género</label>
+		<div class="col-lg-3 inputGroupContainer">
+			<div class = "input-group">
+				<select id="gender" name="gender">
+					<option value="Male">Masculino</option>
+					<option value="Female">Femenino</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Nacionalidad/Raza</label>
+		<div class="col-lg-3 inputGroupContainer">
+			<div class = "input-group">
+				<select id="race" name="race">
+					<option value="black">Black(Not of Hispanic Origin)</option>
+					<option value="white">White(Not of Hispanic Origin)</option>
+					<option value="asian">Asian</option>
+					<option value="hispanic">Hispanic</option>
+					<option value="native-american">American Indian/Alaskan Native</option>
+					<option value="pacific-islander">Native Hawaiian/Pacific Islander</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-group", id="family-info">
+		<label class="col-lg-12">Información de otros miembros de la familia</label>
+		<div class="col-lg-3 inputGroupContainer">
+			<div class = "input-group", id = "family-input-container">
+				
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-group">
+      <label class="col-lg-3 control-label">¿Necesitas pañales? Si es así, ¿de qué tamaño?</label>
+      <div class="col-lg-3 inputGroupContainer">
+        <div class="input-group">
+          <input type="text" class="form-control" name="Diapers" pattern="[a-zA-Z\d .!?]*$"/>
+        </div>
+      </div>
+    </div>
+	
+	<div class="form-group">
+      <label class="col-lg-3 control-label">Elija el método de recibir los alimentos y lea las siguientes instrucciones.</label>
+      <div class="col-lg-4 inputGroupContainer">
+        <div class="input-group">
+			<LI>Por favor, sólo elija <b>"Entrega"</b> si usted es <b>ancianos, discapacitados o no tiene transporte</b> y vive en el área correcta.</LI>
+			<LI>Si elije "Recogida", Asegúrate de <b>registarse por un tiempo en la siguiente página</b> con el <b>mismo número de teléfono</b>.</LI>
+			<LI>Puedes <b>recoger para otras familias</b> si tambien tienen una solicitud. Por favor, anote a quién está recogiendo en los comentarios.</LI>
+				
+			<br>
+			<p hidden="true">If you choose "Delivery", please be aware that deliveries are fulfilled in the order they are requested, 
+				so it may take 2 weeks or longer for you to receive the food.</p>
+				
+			<input type="radio" id="pickup" name="receive-method" value="pickup"  style = "margin-left: 5px" checked onchange="addDeliveryForm(this);"/>
+			<label for="pickup" style = "margin-left: 5px"> Recogida</label><br>
+			
+			<input type="radio" id="delivery" name="receive-method" value="delivery" onchange="addDeliveryForm(this);" disabled style = "margin-left: 5px"/>
+
+			<label for="delivery" style = "margin-left: 5px" >Entrega</label><br>
+
+			<small class="text-danger" id="delivery-error" style = "margin-left: 5px">Please select a city to check eligibility for delivery </small><br>
+
+
+
+			<div class="form-group", id="family-info">
+				<label class="col-lg-12">Requisitos De Entrega</label>
+				<div class="col-lg-3 inputGroupContainer">
+					<div class = "input-group", id = "delivery-form">
+					</div>
+				</div>
+			</div>
+
+        </div>
+      </div>
+    </div>
+	
+	<div class="form-group">
+      <label class="col-lg-3 control-label">Comentarios</label>
+      <div class="col-lg-3 inputGroupContainer">
+        <div class="input-group">
+          <input type="text" class="form-control" name="Comments" pattern="[a-zA-Z\d .!?]*$"/>
+        </div>
+      </div>
+    </div>
+	
+    <div class="form-group">
+      <div class="col-lg-9 col-lg-offset-3">
+        <button type="submit" class="btn btn-default" id="postForm">Enviar</button>
+      </div>
+    </div>
+
+  </form>
+
+  </div>
+</body>
+
+<footer>
+<script src="validation-functions.js"></script>
+</footer>
+
+</html>

@@ -228,7 +228,7 @@ $( "form" ).on( "submit", function( event ) {
 		uploadData += '&Group=50&request=pickup';
 		redirectUrl = 'https://shifacovid19.as.me/?calendarID=4232173';
 	}
-
+	
 	if(document.querySelector('input[name="receive-method"]:checked').value === 'delivery'){
 		uploadData += '&request=delivery';
 	}
