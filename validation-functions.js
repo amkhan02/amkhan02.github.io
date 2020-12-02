@@ -226,7 +226,7 @@ $( "form" ).on( "submit", function( event ) {
 	
 	if(document.querySelector('input[name="receive-method"]:checked').value === 'pickup'){
 		uploadData += '&Group=50&request=pickup';
-		redirectUrl = 'https://shifacovid19.as.me/?calendarID=4232173';
+		redirectUrl = 'https://shifaclinic2020.as.me/pickup';
 	}
 	
 	if(document.querySelector('input[name="receive-method"]:checked').value === 'delivery'){
