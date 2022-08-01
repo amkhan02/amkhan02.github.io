@@ -1,8 +1,9 @@
 //Sends a request to the google sheet api and validates if there is availability for delivery
+/*
 var slotsReserved = true;
 checkDeliverySlots(this);
 const validCities = ["Mount Pleasant","North Charleston","Charleston","Summerville","West Ashley","Hanahan","Johns Island"]
-
+*/
 
 
 function addHouseMembers(that){
@@ -217,10 +218,10 @@ $( "form" ).on( "submit", function( event ) {
 	var serverUrl = 'https://127.0.0.1:5000';
 	var redirectUrl = '#';
 	var uploadData = $(this).serialize();
-	
+	console.log(uploadData);
 	if(deploy){
 		sheetUrl = 'https://script.google.com/macros/s/AKfycbyxMNusJI0snt3lSaQPWIMDKMH2DrMjQJXWBQYCb5dSlcikvCY/exec';
-		serverUrl = 'https://shifa-server.xyz';
+		serverUrl = 'https://www.shifa-server.xyz';
 		redirectUrl = 'success-page.html';
 	}
 	
@@ -230,39 +231,44 @@ $( "form" ).on( "submit", function( event ) {
 		redirectUrl = 'https://shifaclinic2020.as.me/pickup';
 	}
 	*/
-	
+	/*
 	if(document.querySelector('input[name="receive-method"]:checked').value === 'delivery'){
 		uploadData += '&request=delivery';
 	}
-
+	*/
 	//add loading icon
 	$('#postForm').prepend($('<span></span>').addClass('glyphicon glyphicon-refresh glyphicon-refresh-animate'));
 	
 	//Send data to Food Bank Updater
 	var jqxhr = $.post(serverUrl, uploadData, function(data){
 		console.log("success, data: " + data.statusText);
-		$(location).attr('href', redirectUrl);
+		if (deploy)
+			$(location).attr('href', redirectUrl);
 	})
 	.fail(function(data){
 		console.warn("error, data: " + data.statusText);
 		console.log(serverUrl);
 		if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
             alert("Browser is Safari -- we get an error, but the form still submits -- continue.");
-            $(location).attr('href',redirectUrl);                
+			if (deploy)
+				$(location).attr('href',redirectUrl);                
         }
 	});
 	
 	//Send data to google sheet
+	/*
 	var jqxhr = $.get(sheetUrl, uploadData, function(data){
 		console.log("success, data: " + data.statusText);
-		$(location).attr('href', redirectUrl);
+		if (deploy)
+			$(location).attr('href', redirectUrl);
 	})
 	.fail(function(data){
 		console.warn("error, data: " + data.statusText);
 		if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
             alert("Browser is Safari -- we get an error, but the form still submits -- continue.");
-            $(location).attr('href',redirectUrl);                
+            if (deploy)
+				$(location).attr('href',redirectUrl);                
         }
 	});
-	
+	*/
 });
