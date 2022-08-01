@@ -224,10 +224,12 @@ $( "form" ).on( "submit", function( event ) {
 		redirectUrl = 'success-page.html';
 	}
 	
+	/* Link to Scheduling Service
 	if(document.querySelector('input[name="receive-method"]:checked').value === 'pickup'){
 		uploadData += '&Group=50&request=pickup';
 		redirectUrl = 'https://shifaclinic2020.as.me/pickup';
 	}
+	*/
 	
 	if(document.querySelector('input[name="receive-method"]:checked').value === 'delivery'){
 		uploadData += '&request=delivery';
