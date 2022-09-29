@@ -221,7 +221,7 @@ $( "form" ).on( "submit", function( event ) {
 	if(deploy){
 		sheetUrl = 'https://script.google.com/macros/s/AKfycbyxMNusJI0snt3lSaQPWIMDKMH2DrMjQJXWBQYCb5dSlcikvCY/exec';
 		serverUrl = 'https://www.shifa-server.xyz';
-		//redirectUrl = 'success-page.html';
+		redirectUrl = 'success-page.html';
 	}
 	
 	/* Link to Scheduling Service
